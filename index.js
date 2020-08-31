@@ -242,14 +242,14 @@ module.exports = async parameters => {
     return;
   }
 
-  const {dir, name} = path.parse(pkgPath);
-  const signedPath = path.resolve(dir, `${name}-signed.pkg`);
+  // const {dir, name} = path.parse(pkgPath);
+  // const signedPath = path.resolve(dir, `${name}-signed.pkg`);
 
-  console.log(`Signing ${pkgPath}...`);
-  await signPackage({productSignCertificateName, pkgPath, signedPath});
+  // console.log(`Signing ${pkgPath}...`);
+  // await signPackage({productSignCertificateName, pkgPath, signedPath});
 
-  fs.renameSync(pkgPath, path.resolve(dir, `${name}-unsigned.pkg`));
-  fs.renameSync(signedPath, pkgPath);
+  // fs.renameSync(pkgPath, path.resolve(dir, `${name}-unsigned.pkg`));
+  // fs.renameSync(signedPath, pkgPath);
 
   console.log(`Notarizing ${pkgPath}...`);
   const uuid = await startNotarizingPackage({
